@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "tools.css">
+    <title> Webpage</title>
+</head>
+<body>
+    <div class = "main">
+        <div class = "navbar">
+            <div class = "icon">
+                    <h2 class = "logo"> ZayCorp.</h2>
+                </div>
+                <div class = "menu">
+                    <ul>
+                        <li> <a href = "WebsiteDesign.html" > Home </a></li>
+                        <li> <a href = "in.html" > Topics </a></li>
+                        <li> <a href = "FAQ.html" > FAQ </a></li>
+                        <li> <a href = "tools.html" > Tools </a></li>
+                        <li> <a href = "Contact.html" > Contact </a></li>
+                    </ul>
+                </div>
+                <div class = "search">
+                    <input class = "s" type="Search" name = "" placeholder="type to text">
+                    <a href = "#"> <button class = "button"> Search </button></a>
+                </div>
+
+            </div>      
+
+       <div class = "color">     
+            <div class = "sub">
+                <div class = "content">
+                    <h1> Fitness Tools </h1>
+                </div>
+            </div>
+    <div class = tooler>
+            <div class = "form">
+
+                <label for = "Feet" > Feet: </label><br>
+                <input type = "text" id="Feet" placeholder = "Feet" name="Height"><br>
+                <label for = "inches" > Inches </label><br>
+                <input type = "text" id = "Inches" placeholder = "inches" name = "inches"><br>
+                <label for = "Weight" > Weight: </label><br>
+                <input type = "text" id="Weight" placeholder = "Weight" name="Weight"><br>
+            </div>
+        </div>
+            <div class = button1>
+            <button onclick = "calculate()"> Click Me</button>
+                </div>
+                <div class = content>
+            <p class = "BMI" id = "BMI">
+             !!!   CALCULATE YOUR BMI  !!!
+            </p>
+            </div>
+        <div class ="listHelper">
+            <div class = "list">
+                <li> Underweight = 18.5 </li>
+                <li> N1ormal weight = 18.5 - 24.9 </li>
+                <li> Overweight = 25 - 29.9 </li>
+                <li> Obesity = BMI of 30 or greater </li>
+             </div>
+                </div>
+
+
+                <div class = "Deficit">
+                    <h1> Calorie Deficit</h1>
+                </div>
+             <div class = "WeightLoss">
+                <div class = "form1">
+                    <label for = "Goal" >Goal Weight: </label><br>
+                    <input type = "text" id="Goal" placeholder = "Weight" name="Weight"><br>
+                </div>
+    
+            </div>
+                <div class = button2>
+                    <button onclick = "Loss()"> Click Me</button>
+                </div>
+                <div class = "cal">
+            <p class = "calories" id = "calories">
+                    " Calculate Your Calories"
+            </p>
+                </div>
+                 
+        </div>
+
+    </div>
+        <script>
+       
+            function Loss(){
+                let goal = document.querySelector("#Goal");
+                let calorie = document.querySelector("#calories");
+                calorie.innerHTML = "[ Your calorie deficit is:" + goal.value * 12 + "]" + "\n" + "[" + "Your protein intake: " + goal.value * 1 + "g]";
+            }
+    
+
+            function calculate(){
+            let height = document.querySelector("#Feet");
+            let weight = document.querySelector("#Weight");
+            let button = document.querySelector("#calc");
+            let inch = document.querySelector("#Inches")
+            let bmi = document.querySelector("#BMI");
+            let weight1 = (weight.value  * 0.45359237 );
+            let height1 = (height.value * 0.3048) ;
+            let inches = inch.value * 0.0254;
+                bmi.innerHTML = "[Your BMI Is: " + (weight1 / ((height1 + inches) * (height1 + inches))) + "]";
+            }
+    
+        
+        </script>
+
+        
+    
+</div>
+</body>
+</html>

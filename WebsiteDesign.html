@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "Design.css">
+    <title> Webpage</title>
+</head>
+<body>
+    <div class = "main">
+        <div class = "navbar">
+            <div class = "icon">a
+                    <h2 class = "logo"> ZayCorp.</h2>
+                </div>
+                <div class = "menu">
+                    <ul>
+                        <li> <a href = "WebsiteDesign.html" > Home </a></li>
+                        <li> <a href = "in.html" > Topics </a></li>
+                        <li> <a href = "FAQ.html" > FAQ </a></li>
+                        <li> <a href = "tools.html" > Tools </a></li>
+                        <li> <a href = "Contact.html" > Contact </a></li>
+                    </ul>
+                </div>
+                <div class = "search">
+                    <input class = "s" type="Search" name = "" placeholder="type to text">
+                    <a href = "#"> <button class = "button"> Search </button></a>
+                </div>
+
+            </div>   
+                <div class ="head">
+                    <form>
+                    <label for="user"></label><br>
+                    <input type="post" id="user" placeholder="Create Account"><br>
+                    </form>
+                </div>
+                
+                   
+                <div class = "creation" >
+                    
+                <form method = "post">
+                    <label for="user">Username:</label><br>
+                    <input type="text" id="user" name = "user" placeholder="Username"><br>
+                    <label for="Password">Password:</label><br>
+                    <input type="text" id="pass" name = "pass" placeholder="Password"><br>
+                    <label for = "confirm">Confirm Username:</label><br>
+                    <input type="text" id="confirm" name = "confirm" placeholder="Confirm Password"><br>
+                  </form> 
+          
+                
+            
+            </div>
+            <div class = "submit"> 
+                <button> Submit</button>    
+                </div>
+           
+
+                    <div class = contents>
+                <p class = "hadith" id = "hadith">
+                 Hadith
+                </p>
+                </div>
+                <div class = refresh>
+                    <button onclick = "Hadith()"> Refresh</button>
+                        </div>
+                    
+                
+           
+        </div>
+
+        <script>
+           function Hadith(){
+            let one = "Eat and drink and do not commit excesses; indeed He does not love those who are excessive”";
+            let two = "“Do not with your own hands throw yourself into ruin”";
+            let three = "“A stronger believer is better than a weak believer”";
+            
+               
+                    
+            let english = "";
+            const key = "$2y$10$deKfyJCqer34l4zvO0QekpZMNVPNEIkh6MnjrY4qDYZIUPZfzK";
+            const apiUrl = `https://hadithapi.com/api/hadiths?apiKey=${key}`;
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                english = data.hadiths.data[0].hadithEnglish;
+                console.log(english);
+
+                let hadith = document.querySelector("#hadith");
+            
+                hadith.innerHTML = english;
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            
+            }
+            // const getHadith = async () => {
+                //     const response = await fetch(`https://hadithapi.com/api/books/?apiKey=${key}`, {mode: 'cors', method: "GET"});
+                //     const result = await response.json();
+                //     console.log(await result);
+                // }
+                // getHadith()
+            
+        </script>
+   
+</body>
+</html> 
